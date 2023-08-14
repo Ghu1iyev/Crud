@@ -4,6 +4,7 @@ import About from '../pages/About/index'
 import Contact from '../pages/Contact/index'
 import Blog from '../pages/Blog/index'
 import ErrorPage from '../pages/ErrorPage/index'
+import CreateTodo from '../components/CreateTodo';
 
 export const routes = [
     {
@@ -29,6 +30,12 @@ export const routes = [
         path: "/blog",
         extract: false,
         element: <Blog />
+    },
+    {
+        id: uuidv4(),
+        path: "/create-todo",
+        extract: false,
+        element: <CreateTodo />
     },
     {
         id: uuidv4(),
