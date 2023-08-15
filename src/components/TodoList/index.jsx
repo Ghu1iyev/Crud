@@ -3,8 +3,8 @@ import Button from "../Atoms/Button/index";
 import { FiEdit, FiDelete } from "react-icons/fi";
 import { VscAdd } from "react-icons/vsc";
 import axios from 'axios'
-import { RotatingLines } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Atoms/Loading";
 
 const TodoList = () => {
   const [user, setUser] = useState([])
@@ -45,13 +45,7 @@ const TodoList = () => {
         </thead>
         <tbody>
           {loading && (
-            <RotatingLines
-            strokeColor="grey"
-            strokeWidth="2"
-            animationDuration="0.75"
-            width="30"
-            visible={true}
-          />
+            <Loading />
           )}
           {
             user.map((user,index) => (
