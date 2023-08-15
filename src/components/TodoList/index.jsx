@@ -24,6 +24,10 @@ const TodoList = () => {
     }).finally(() => setLoading(false))
   }
   
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:3001/data/${id}`)
+    setUser(prevUser => prevUser.filter(user => user.id !== id))
+  }
   return (
     <div className='container'>
       <div className="d-flex justify-content-end mb-3 mt-3">
@@ -60,7 +64,7 @@ const TodoList = () => {
               <Button className="warning">
                 <FiEdit />
               </Button>
-              <Button className="danger">
+              <Button className="danger" onClick={() => deleteUser(user.id)}>
                 <FiDelete />
               </Button>
             </td>
